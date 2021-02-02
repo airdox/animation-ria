@@ -1,0 +1,23 @@
+{
+  "name": "animation-ria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airdox/animation-ria.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/airdox/animation-ria/issues"
+  },
+  "homepage": "https://github.com/airdox/animation-ria#readme",
+  "dependencies": {
+    "package.json": "^2.0.1",
+    "sass": "^1.32.6"
+  }
+}

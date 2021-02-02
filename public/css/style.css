@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "basara";
+  src: url("/public/fonts/BASARA.ttf");
+}
+body {
+  height: 100vh;
+  overflow: auto;
+}
+
+h1, h2, p {
+  font-family: "basara", arial;
+}
+
+.arrow {
+  margin-top: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid #06A8FF;
+  border-right: 5px solid #06A8FF;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+img:hover {
+  scale: 2;
+}
+
+section {
+  height: 100vh;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  z-index: 2;
+  position: relative;
+}
+
+article {
+  height: 100vh;
+  scroll-snap-align: start;
+  min-height: 50vh;
+  /* scroll-margin-top: 1em; */
+  display: flex;
+}
+
+#coverSection {
+  background-image: url(/public/images/bgPrison.jpg);
+  background-size: 150%;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#coverSection .text {
+  position: relative;
+}
+
+#coverSection h1,
+#coverSection p {
+  position: relative;
+}
+
+#coverSection h1 {
+  font-size: 30vw;
+}
+
+#coverSection p {
+  font-size: 40px;
+}
+
+#coverSection .filter {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.containerHistory {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.containerHistory p {
+  width: 30%;
+}
+
+.containerImage {
+  position: relative;
+  width: 300px;
+  height: 450px;
+}
+
+.imageProfile {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  transform: translate(0px, 0px);
+}
+
+#historyPart1 .imageProfile.effect,
+#historyPart3 .imageProfile.effect {
+  /* animation: scale 1s infinite alternate; */
+  transform: translate(-20px, 20px);
+}
+
+#historyPart1 .imageProfile.effect + .imageBack,
+#historyPart3 .imageProfile.effect + .imageBack {
+  /* animation: translateRight 1s infinite alternate; */
+  transform: translate(20px, -20px);
+}
+
+#historyPart2 .imageProfile.effect,
+#historyPart4 .imageProfile.effect {
+  /* animation: scale 1s infinite alternate; */
+  transform: translate(20px, -20px);
+}
+
+#historyPart2 .imageProfile.effect + .imageBack,
+#historyPart4 .imageProfile.effect + .imageBack {
+  /* animation: translateRight 1s infinite alternate; */
+  transform: translate(-20px, 20px);
+}
+
+.imageBack {
+  width: 100%;
+  height: 100%;
+  background: black;
+  position: absolute;
+  z-index: 1;
+  transition: 1s;
+  transform: translate(0px, 0px);
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1.2);
+  }
+}
+@keyframes translateRight {
+  100% {
+    transform: translate(50px);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
