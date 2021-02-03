@@ -1,0 +1,50 @@
+.containerImage {
+    position: relative;
+    width: 300px;
+    height: 450px;
+}
+
+.imageProfile {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    transform: translate(0px, 0px);
+}
+
+#historyPart1 .imageProfile.effect,
+#historyPart3 .imageProfile.effect {
+    transform: translate(-20px, 20px);
+
+    &:hover {
+        transform: translate(-20px, 20px) scale(1.2);
+    }
+
+    + .imageBack {
+        transform: translate(20px, -20px);
+    }
+}
+
+#historyPart2 .imageProfile.effect,
+#historyPart4 .imageProfile.effect {
+    transform: translate(20px, -20px);
+
+    &:hover {
+        transform: translate(20px, -20px) scale(1.2);
+    }
+
+    + .imageBack {
+        transform: translate(-20px, 20px);
+    }
+}
+
+.imageBack {
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    z-index: 1;
+    transition: 1s;
+    transform: translate(0px, 0px);
+}
