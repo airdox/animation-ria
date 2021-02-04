@@ -22,8 +22,6 @@ let observer = new IntersectionObserver(function (observables) {
             observable.target.classList.remove('effect')  
         }
     })
-    let element = params[0].target
-    element.classList.add("effect");
 }, {
     threshold: [0.5, 0]
 })
@@ -33,3 +31,21 @@ let items = document.querySelectorAll('.imageProfile')
 items.forEach(element => {
     observer.observe(element)
 });
+
+
+let booksItems = document.querySelectorAll('.book')
+
+booksItems.forEach(element => {
+    observer.observe(element)
+});
+
+let books = document.getElementsByClassName('book');
+Array.from(books).forEach(book => {
+    book.onclick = () => {
+        if (book.classList.contains('open')) {
+            book.classList.remove("open")
+        } else {
+            book.classList.add("open")
+        }
+    }
+})
