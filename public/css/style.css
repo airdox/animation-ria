@@ -98,12 +98,20 @@ p {
   animation-delay: -0.4s;
 }
 
-#historyPart5 .containerHistory,
-#historyPart1 .containerHistory {
-  width: 80%;
+#historyPart1 .containerHistory,
+#historyPart3 .containerHistory {
+  justify-content: flex-start;
+}
+
+#historyPart2 .containerHistory,
+#historyPart4 .containerHistory {
+  justify-content: flex-end;
+}
+
+.containerHistory {
+  width: 60%;
   height: 100vh;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   perspective: 1200px;
 }
@@ -117,6 +125,7 @@ p {
   left: 0%;
   transition: 1s;
   opacity: 0;
+  width: 200px;
 }
 
 .front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
@@ -134,8 +143,27 @@ p {
   background: navy;
 }
 
-#historyPart1 .book .front {
+#historyPart1 .book .front,
+#historyPart1 .book .back {
   background-image: url(/public/images/tome1.jpg);
+  background-size: cover;
+}
+
+#historyPart2 .book .front,
+#historyPart2 .book .back {
+  background-image: url(/public/images/tome2.jpg);
+  background-size: cover;
+}
+
+#historyPart3 .book .front,
+#historyPart3 .book .back {
+  background-image: url(/public/images/tome3.jpg);
+  background-size: cover;
+}
+
+#historyPart4 .book .front,
+#historyPart4 .book .back {
+  background-image: url(/public/images/tome4.jpg);
   background-size: cover;
 }
 
@@ -174,13 +202,31 @@ p {
 }
 
 .book.effect {
-  transform: translateX(60px);
   opacity: 1;
 }
 
+#historyPart1 .book.effect:not(.open),
+#historyPart3 .book.effect:not(.open) {
+  transform: translateX(60px);
+}
+
+#historyPart2 .book.effect:not(.open),
+#historyPart4 .book.effect:not(.open) {
+  transform: translateX(-60px);
+}
+
 .book.open {
-  left: 50%;
   transform: scale(1.5);
+}
+
+#historyPart1 .book.open,
+#historyPart3 .book.open {
+  left: 50%;
+}
+
+#historyPart2 .book.open,
+#historyPart4 .book.open {
+  left: -50%;
 }
 
 .book:not(.open):hover {
