@@ -5,6 +5,9 @@ section {
     scroll-snap-type: y mandatory;
     z-index: 2;
     position: relative;
+    &.static{
+        overflow: hidden;
+    }
 }
 
 article {
@@ -12,6 +15,8 @@ article {
     scroll-snap-align: start;
     min-height: 50vh;
     display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 #coverSection {
@@ -29,6 +34,7 @@ article {
     h1,
     p {
         position: relative;
+        z-index: 2;
     }
 
     h1 {
@@ -39,12 +45,39 @@ article {
         font-size: 40px;
     }
 
-    .filter {
+    .arrow{
+        z-index: 2;
+    }
+
+    .filter.active{
+        z-index: 1;
+        cursor: initial;
+    }
+}
+
+.filter{
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    position: absolute;
+    &.active{
         background-color: black;
-        width: 100%;
-        height: 100%;
-        opacity: 0.5;
-        position: absolute;
+        z-index: 5;
+        cursor: pointer;
+    }
+}
+
+.resumeHistory{
+    color: white;
+    display: none;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 80%;
+    font-size: 50px;
+    &.active{
+        z-index: 50;
+        display: block;
     }
 }
 
