@@ -16,10 +16,26 @@ document.body.onmousemove = event => {
 let observer = new IntersectionObserver(function (observables) {
     observables.forEach(function (observable) {
         if (observable.intersectionRatio > 0.5) {
-            observable.target.classList.add('effect')   
+            observable.target.classList.add('effect') 
         }
         else{
             observable.target.classList.remove('effect')  
+        }
+    })
+}, {
+    threshold: [0.5, 0]
+})
+
+let observerArticlesWithoutFirst = new IntersectionObserver(function (observables) {
+    observables.forEach(function (observable) {
+        if (observable.intersectionRatio > 0.5) {
+            console.log(observable)
+            if (katanas[0].classList.contains('effect')) {
+                katanas[0].classList.remove('effect')
+            }
+            else{
+                katanas[0].classList.add('effect')
+            }
         }
     })
 }, {
@@ -30,6 +46,12 @@ let items = document.querySelectorAll('.imageProfile')
 
 items.forEach(element => {
     observer.observe(element)
+});
+
+let katanas = document.getElementsByClassName("katana")
+let articlesWithoutFirst = document.querySelectorAll("article:not(#coverSection)")
+Array.from(articlesWithoutFirst).forEach(article => {
+    observerArticlesWithoutFirst.observe(article)
 });
 
 

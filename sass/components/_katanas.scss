@@ -1,0 +1,10 @@
+.katana{
+    position: fixed;
+    z-index: 55;
+    transform: translate(200%, -100%) rotate(80deg);
+    width: 100%;
+    transition: 3s;
+    &.effect{
+        transform: translate(-200%, 70%) rotate(0deg);
+    }
+}
