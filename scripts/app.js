@@ -15,6 +15,9 @@ document.body.onmousemove = event => {
 
 document.addEventListener("DOMContentLoaded", () => {
     window.setTimeout(function() {
+        document.body.getElementsByClassName("slashed-effect")[0].classList.remove('effect');
+    }, 1000);
+    window.setTimeout(function() {
         document.body.getElementsByTagName("section")[0].classList.remove('black');
         document.body.getElementsByTagName("section")[0].classList.add('fading');
         window.setTimeout(function() {
