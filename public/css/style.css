@@ -355,6 +355,29 @@ section {
 section.static {
   overflow: hidden;
 }
+section.black {
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+section.black .filter-fading {
+  background: black;
+}
+section.black #coverSection .text, section.black #coverSection .arrow {
+  opacity: 0;
+}
+section.fading {
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+
+.filter-fading {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+  z-index: 60;
+  transition: 2s;
+}
 
 article {
   height: 100vh;
@@ -382,6 +405,9 @@ article {
   position: relative;
   z-index: 2;
 }
+#coverSection .text {
+  transition: 2s;
+}
 #coverSection h1 {
   font-size: 30vw;
 }
@@ -389,6 +415,7 @@ article {
   font-size: 40px;
 }
 #coverSection .arrow {
+  transition: 2s;
   z-index: 2;
 }
 #coverSection .filter.active {

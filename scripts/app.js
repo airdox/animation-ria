@@ -13,6 +13,16 @@ document.body.onmousemove = event => {
     div.getElementsByTagName("h1")[0].style.top = positionTextY + "px";
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    window.setTimeout(function() {
+        document.body.getElementsByTagName("section")[0].classList.remove('black');
+        document.body.getElementsByTagName("section")[0].classList.add('fading');
+        window.setTimeout(function() {
+            document.body.getElementsByTagName("section")[0].classList.remove('fading');
+        }, 2000);
+    }, 2000);
+  });
+
 let observer = new IntersectionObserver(function (observables) {
     observables.forEach(function (observable) {
         if (observable.intersectionRatio > 0.5) {
