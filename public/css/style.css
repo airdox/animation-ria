@@ -79,7 +79,7 @@ p {
   margin-top: 50px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-100%, -100%);
 }
 .arrow span {
   display: block;
@@ -292,6 +292,89 @@ p {
   transform: translate(-200%, 70%) rotate(0deg);
 }
 
+.slashed-effect {
+  width: 60vw;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  transition: 0.5s;
+  left: -100%;
+  top: 50%;
+  z-index: 100;
+}
+.slashed-effect.effect {
+  left: 100%;
+}
+
+.slash-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(5);
+}
+
+.slash-text.effect .top {
+  left: 0;
+}
+.slash-text.effect .bottom {
+  right: 0;
+}
+
+.slash-text .top,
+.slash-text .bottom {
+  text-align: center;
+  font: 62px/100px "basara";
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.slash-text .top:before,
+.slash-text .bottom:before {
+  content: attr(title);
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+
+.slash-text .top {
+  position: absolute;
+  transition: 1s;
+  top: 0;
+  left: 5px;
+  right: 0;
+  bottom: 50%;
+}
+
+.slash-text .top:before {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+}
+
+.slash-text .bottom {
+  position: absolute;
+  transition: 1s;
+  top: 50%;
+  left: 0;
+  right: 5px;
+  bottom: 0;
+}
+
+.slash-text .bottom:before {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+}
+
 .containerImage {
   position: relative;
   width: 300px;
@@ -355,6 +438,29 @@ section {
 section.static {
   overflow: hidden;
 }
+section.black {
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+section.black .filter-fading {
+  background: black;
+}
+section.black #coverSection .text, section.black #coverSection .arrow {
+  opacity: 0;
+}
+section.fading {
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+
+.filter-fading {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+  z-index: 60;
+  transition: 2s;
+}
 
 article {
   height: 100vh;
@@ -372,15 +478,17 @@ article {
   color: white;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
 }
 #coverSection .text,
 #coverSection h1,
 #coverSection p {
-  position: relative;
   z-index: 2;
+}
+#coverSection .text {
+  transition: 2s;
 }
 #coverSection h1 {
   font-size: 30vw;
@@ -389,6 +497,7 @@ article {
   font-size: 40px;
 }
 #coverSection .arrow {
+  transition: 2s;
   z-index: 2;
 }
 #coverSection .filter.active {

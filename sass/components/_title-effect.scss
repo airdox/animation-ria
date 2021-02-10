@@ -1,0 +1,65 @@
+.slash-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    transform: scale(5);
+  }
+
+.slash-text.effect{
+    .top{
+        left: 0;
+    }
+    .bottom{
+        right: 0;
+    }
+}
+
+  .slash-text .top,
+  .slash-text .bottom {
+    text-align: center;
+    font: 62px/100px "basara";
+    text-transform: uppercase;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+  }
+  .slash-text .top:before,
+  .slash-text .bottom:before {
+    content: attr(title);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+  .slash-text .top {
+    position: absolute;
+    transition: 1s;
+    top: 0;
+    left: 5px;
+    right: 0;
+    bottom: 50%;
+  }
+  .slash-text .top:before {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+  }
+  .slash-text .bottom {
+    position: absolute;
+    transition: 1s;
+    top: 50%;
+    left: 0;
+    right: 5px;
+    bottom: 0;
+  }
+  .slash-text .bottom:before {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+  }
