@@ -52,14 +52,13 @@ article {
     color: white;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     
     .text,
     h1,
     p {
-        position: relative;
         z-index: 2;
     }
     

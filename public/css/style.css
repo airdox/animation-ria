@@ -79,7 +79,7 @@ p {
   margin-top: 50px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-100%, -100%);
 }
 .arrow span {
   display: block;
@@ -294,16 +294,85 @@ p {
 
 .slashed-effect {
   width: 60vw;
-  height: 5px;
+  height: 2px;
   background-color: white;
   position: absolute;
   transition: 0.5s;
-  left: 70%;
+  left: -100%;
+  top: 50%;
   z-index: 100;
-  transform: rotate(-40deg) translate(-150vw, 0px);
 }
 .slashed-effect.effect {
-  transform: rotate(-40deg) translate(100vw, 0px);
+  left: 100%;
+}
+
+.slash-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(5);
+}
+
+.slash-text.effect .top {
+  left: 0;
+}
+.slash-text.effect .bottom {
+  right: 0;
+}
+
+.slash-text .top,
+.slash-text .bottom {
+  text-align: center;
+  font: 62px/100px "basara";
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.slash-text .top:before,
+.slash-text .bottom:before {
+  content: attr(title);
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+
+.slash-text .top {
+  position: absolute;
+  transition: 1s;
+  top: 0;
+  left: 5px;
+  right: 0;
+  bottom: 50%;
+}
+
+.slash-text .top:before {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+}
+
+.slash-text .bottom {
+  position: absolute;
+  transition: 1s;
+  top: 50%;
+  left: 0;
+  right: 5px;
+  bottom: 0;
+}
+
+.slash-text .bottom:before {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
 }
 
 .containerImage {
@@ -409,14 +478,13 @@ article {
   color: white;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
 }
 #coverSection .text,
 #coverSection h1,
 #coverSection p {
-  position: relative;
   z-index: 2;
 }
 #coverSection .text {

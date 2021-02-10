@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.setTimeout(function() {
             document.body.getElementsByTagName("section")[0].classList.remove('fading');
         }, 2000);
+        window.setTimeout(function() {
+            document.body.getElementsByClassName("slash-text")[0].classList.remove('effect');
+        }, 1000);
     }, 2000);
   });
 
