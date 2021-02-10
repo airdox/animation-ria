@@ -1,13 +1,13 @@
 .slashed-effect{
     width: 60vw;
-    height: 5px;
+    height: 2px;
     background-color: white;
     position: absolute;
     transition: 0.5s;
-    left: 70%;
+    left: -100%;
+    top: 50%;
     z-index: 100;
-    transform: rotate(-40deg) translate(-150vw, 0px);
     &.effect{
-        transform: rotate(-40deg) translate(100vw, 0px);
+        left: 100%;
     }
 }
