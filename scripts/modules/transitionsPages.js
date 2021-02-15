@@ -4,7 +4,6 @@ let articlesWithoutFirst = document.querySelectorAll("article:not(#coverSection)
 let observerArticlesWithoutFirst = new IntersectionObserver(function (observables) {
     observables.forEach(function (observable) {
         if (observable.intersectionRatio > 0.5) {
-            console.log(observable)
             if (katanas[0].classList.contains('effect')) {
                 katanas[0].classList.remove('effect')
             }
